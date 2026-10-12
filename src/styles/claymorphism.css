@@ -1,0 +1,297 @@
+/* ==========================================================================
+   CLAYMORPHISM & 3D UTILITY CLASSES (WITH HIGH-CONTRAST TACTILE BORDERS)
+   ========================================================================== */
+
+/* Inflated 3D Clay Surface Card */
+.clay-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  border: 2px solid #94a3b8;
+  box-shadow: 
+    8px 12px 24px rgba(100, 116, 139, 0.18),
+    -4px -4px 12px rgba(255, 255, 255, 0.95),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.9);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.clay-card:hover {
+  transform: translateY(-3px);
+  border-color: #64748b;
+  box-shadow: 
+    12px 18px 30px rgba(100, 116, 139, 0.28),
+    -4px -4px 14px rgba(255, 255, 255, 1);
+}
+
+.clay-card-flat {
+  background: #f8fafc;
+  border-radius: var(--radius-md);
+  border: 2px solid #cbd5e1;
+  box-shadow: 4px 6px 14px rgba(148, 163, 184, 0.18);
+}
+
+/* Clay Variants with High-Contrast Distinct Colored Borders & Soft Depth */
+.clay-card-lavender {
+  background: linear-gradient(135deg, #f5f7ff 0%, #edf2ff 100%) !important;
+  border: 2.5px solid #818cf8 !important;
+  box-shadow: 
+    8px 12px 24px rgba(129, 140, 248, 0.25),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.9) !important;
+}
+
+.clay-card-blue {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%) !important;
+  border: 2.5px solid #0284c7 !important;
+  box-shadow: 
+    8px 12px 24px rgba(2, 132, 199, 0.22),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.9) !important;
+}
+
+.clay-card-mint {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%) !important;
+  border: 2.5px solid #16a34a !important;
+  box-shadow: 
+    8px 12px 24px rgba(22, 163, 74, 0.22),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.9) !important;
+}
+
+.clay-card-peach {
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%) !important;
+  border: 2.5px solid #ea580c !important;
+  box-shadow: 
+    8px 12px 24px rgba(234, 88, 12, 0.22),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.9) !important;
+}
+
+.clay-card-pink {
+  background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%) !important;
+  border: 2.5px solid #e11d48 !important;
+  box-shadow: 
+    8px 12px 24px rgba(225, 29, 72, 0.22),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.9) !important;
+}
+
+.clay-card-amber {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%) !important;
+  border: 2.5px solid #d97706 !important;
+  box-shadow: 
+    8px 12px 24px rgba(217, 119, 6, 0.22),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Distinct Inner Sections / Subcards (Resolves white-on-white blending) */
+.clay-subcard,
+.clay-section-well {
+  background: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 8px rgba(100, 116, 139, 0.08);
+}
+
+.clay-subcard-white {
+  background: #ffffff;
+  border: 2px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  box-shadow: 0 3px 10px rgba(100, 116, 139, 0.1);
+}
+
+.clay-table-box {
+  border: 2px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.clay-table-head {
+  background: #f1f5f9;
+  border-bottom: 2px solid #cbd5e1;
+  font-weight: 700;
+  color: #334155;
+}
+
+.clay-table-row {
+  border-bottom: 1.5px solid #e2e8f0;
+}
+
+.clay-table-row:nth-child(even) {
+  background: #f8fafc;
+}
+
+/* Tactile 3D Clay Button */
+.clay-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  border: 2px solid #94a3b8;
+  cursor: pointer;
+  background: #ffffff;
+  color: var(--text-main);
+  box-shadow: 
+    4px 6px 14px rgba(148, 163, 184, 0.25),
+    -2px -2px 6px rgba(255, 255, 255, 0.9);
+  transition: all var(--transition-fast);
+  user-select: none;
+  outline: none;
+  text-decoration: none;
+}
+
+.clay-button:hover {
+  transform: translateY(-2px);
+  border-color: #94a3b8;
+  box-shadow: 
+    6px 10px 20px rgba(148, 163, 184, 0.35),
+    -2px -2px 8px rgba(255, 255, 255, 1);
+  color: var(--text-primary);
+}
+
+.clay-button:active,
+.clay-button.active {
+  transform: translateY(1px);
+  border-color: #64748b;
+  box-shadow: 
+    inset 3px 3px 6px rgba(148, 163, 184, 0.35),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.9);
+}
+
+/* Primary Accent Clay Button */
+.clay-button-primary {
+  background: linear-gradient(135deg, #4f46e5 0%, #3b5bdb 100%) !important;
+  color: #ffffff !important;
+  border: 1.5px solid #3730a3 !important;
+  box-shadow: 
+    6px 8px 18px rgba(59, 91, 219, 0.4),
+    -3px -3px 8px rgba(255, 255, 255, 0.6),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+.clay-button-primary:hover {
+  background: linear-gradient(135deg, #5c7cfa 0%, #4338ca 100%) !important;
+  border-color: #312e81 !important;
+  transform: translateY(-2px);
+  box-shadow: 
+    8px 12px 24px rgba(59, 91, 219, 0.5),
+    -3px -3px 8px rgba(255, 255, 255, 0.8);
+}
+
+.clay-button-primary:active {
+  box-shadow: 
+    inset 3px 3px 6px rgba(0, 0, 0, 0.35),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.2);
+  transform: translateY(1px);
+}
+
+/* Clay Pill / Badge */
+.clay-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  box-shadow: 
+    3px 4px 8px rgba(148, 163, 184, 0.2),
+    -2px -2px 6px rgba(255, 255, 255, 0.9);
+}
+
+.clay-badge-lavender {
+  background: #edf2ff;
+  color: #4263eb;
+  border: 1.5px solid #a5b4fc !important;
+}
+
+.clay-badge-mint {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1.5px solid #6ee7b7 !important;
+}
+
+.clay-badge-peach {
+  background: #fff7ed;
+  color: #c2410c;
+  border: 1.5px solid #fdba74 !important;
+}
+
+.clay-badge-pink {
+  background: #fff1f2;
+  color: #be123c;
+  border: 1.5px solid #fda4af !important;
+}
+
+.clay-badge-blue {
+  background: #f0f9ff;
+  color: #0369a1;
+  border: 1.5px solid #7dd3fc !important;
+}
+
+/* 3D Round Icon Bubble */
+.clay-icon-bubble {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 2px solid #cbd5e1;
+  box-shadow: 
+    4px 6px 14px rgba(148, 163, 184, 0.25),
+    -2px -2px 6px rgba(255, 255, 255, 0.9);
+  flex-shrink: 0;
+  color: var(--text-primary);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.clay-icon-bubble-lg {
+  width: 64px;
+  height: 64px;
+}
+
+.clay-icon-bubble:hover {
+  transform: scale(1.08) rotate(3deg);
+  border-color: #94a3b8;
+}
+
+/* Inset Wells (e.g. For stats, data displays, inputs) */
+.clay-inset-well {
+  background: #f1f5f9;
+  border-radius: var(--radius-md);
+  border: 1.5px solid #cbd5e1;
+  box-shadow: 
+    inset 3px 3px 6px rgba(148, 163, 184, 0.28),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.9);
+  padding: 16px;
+}
+
+/* Gentle Floating Animation */
+@keyframes clayFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+.clay-float {
+  animation: clayFloat 4s ease-in-out infinite;
+}
+
+.clay-float-slow {
+  animation: clayFloat 6s ease-in-out infinite;
+}
+
+.clay-float-delay {
+  animation: clayFloat 5s ease-in-out infinite 2s;
+}
