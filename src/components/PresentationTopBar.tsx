@@ -35,61 +35,28 @@ export const PresentationTopBar: React.FC<PresentationTopBarProps> = ({
   const [searchQuery, setSearchQuery] = useState('');
 
   return (
-    <header className="presentation-topbar" style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      padding: '8px 24px',
-      background: 'rgba(255, 255, 255, 0.88)',
-      backdropFilter: 'blur(16px)',
-      borderBottom: '1.5px solid #cbd5e1',
-      height: '56px',
-      zIndex: 20
-    }}>
+    <header className="presentation-topbar">
       {/* Brand & Identity */}
-      <div className="presentation-logo-group" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-        <div style={{
-          width: '36px',
-          height: '36px',
-          borderRadius: '11px',
-          background: 'linear-gradient(135deg, #3b82f6, #6366f1)',
-          color: '#ffffff',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          boxShadow: '0 4px 12px rgba(59, 130, 246, 0.35)'
-        }}>
+      <div className="presentation-logo-group">
+        <div className="presentation-logo-icon">
           <Building2 size={20} />
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <span style={{ fontSize: '1.05rem', fontWeight: 800, color: '#0f2b5c', letterSpacing: '-0.02em' }}>
+          <span className="presentation-brand-title">
             HMIS
           </span>
-          <span style={{
-            fontSize: '0.7rem',
-            fontWeight: 700,
-            background: '#eff6ff',
-            border: '1px solid #bfdbfe',
-            color: '#1d4ed8',
-            padding: '2px 8px',
-            borderRadius: '9999px'
-          }}>
+          <span className="presentation-brand-sub">
             Enterprise Edition
           </span>
         </div>
       </div>
 
-      {/* Search Input Bar (Matching Reference) */}
-      <div style={{
-        position: 'relative',
-        width: '320px',
-        display: 'flex',
-        alignItems: 'center'
-      }}>
+      {/* Search Input Bar */}
+      <div className="presentation-search-box">
         <Search size={15} color="#94a3b8" style={{ position: 'absolute', left: '12px', pointerEvents: 'none' }} />
         <input
           type="text"
-          placeholder="Search slides, modules or features..."
+          placeholder="Search slides, modules..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           style={{
@@ -107,7 +74,7 @@ export const PresentationTopBar: React.FC<PresentationTopBarProps> = ({
       </div>
 
       {/* Top Bar Presenter Actions */}
-      <div className="presentation-top-actions" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+      <div className="presentation-top-actions">
         {/* Table of Contents / Slide Deck Grid */}
         <button
           onClick={onOpenTOC}
@@ -125,7 +92,7 @@ export const PresentationTopBar: React.FC<PresentationTopBarProps> = ({
           title="Toggle Presenter Notes (Press N)"
         >
           <FileText size={15} />
-          <span>Presenter Notes</span>
+          <span>Notes</span>
         </button>
 
         {/* Auto Play Slideshow */}
@@ -156,8 +123,8 @@ export const PresentationTopBar: React.FC<PresentationTopBarProps> = ({
             color: '#ffffff',
             border: 'none',
             borderRadius: '9999px',
-            padding: '6px 16px',
-            fontSize: '0.8rem',
+            padding: '6px 14px',
+            fontSize: 'var(--font-size-xs)',
             fontWeight: 800,
             letterSpacing: '0.04em',
             display: 'inline-flex',
@@ -165,13 +132,15 @@ export const PresentationTopBar: React.FC<PresentationTopBarProps> = ({
             gap: '6px',
             cursor: 'pointer',
             boxShadow: '0 4px 14px rgba(124, 58, 237, 0.35)',
-            transition: 'transform 0.15s ease'
+            transition: 'transform 0.15s ease',
+            whiteSpace: 'nowrap'
           }}
           onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-1px)')}
           onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
+          title="Launch Live Fullscreen Presentation"
         >
           <Sparkles size={14} />
-          <span>LIVE PRESENTATION</span>
+          <span style={{ display: 'inline-block' }}>LIVE</span>
         </button>
       </div>
     </header>

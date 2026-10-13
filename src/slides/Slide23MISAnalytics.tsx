@@ -157,7 +157,7 @@ export const Slide23MISAnalytics: React.FC = () => {
               </div>
               <div>
                 <span style={{ fontSize: '0.72rem', color: '#475569', textTransform: 'uppercase', fontWeight: 800 }}>Bed Occupancy Rate</span>
-                <div style={{ fontSize: '1.6rem', fontWeight: 900, color: '#0f172a', lineHeight: 1.1 }}>{curr.occupancy}</div>
+                <div style={{ fontSize: 'clamp(1.15rem, 2.5vw, 1.6rem)', fontWeight: 900, color: '#0f172a', lineHeight: 1.1 }}>{curr.occupancy}</div>
                 <span style={{ fontSize: '0.7rem', color: '#15803d', fontWeight: 700 }}>Optimal (80-88% Target)</span>
               </div>
             </div>
@@ -168,7 +168,7 @@ export const Slide23MISAnalytics: React.FC = () => {
               </div>
               <div>
                 <span style={{ fontSize: '0.72rem', color: '#475569', textTransform: 'uppercase', fontWeight: 800 }}>Avg Length of Stay (ALOS)</span>
-                <div style={{ fontSize: '1.6rem', fontWeight: 900, color: '#0f172a', lineHeight: 1.1 }}>{curr.alos}</div>
+                <div style={{ fontSize: 'clamp(1.15rem, 2.5vw, 1.6rem)', fontWeight: 900, color: '#0f172a', lineHeight: 1.1 }}>{curr.alos}</div>
                 <span style={{ fontSize: '0.7rem', color: '#15803d', fontWeight: 700 }}>Clinical Benchmark: 3.8 Days</span>
               </div>
             </div>
@@ -179,7 +179,7 @@ export const Slide23MISAnalytics: React.FC = () => {
               </div>
               <div>
                 <span style={{ fontSize: '0.72rem', color: '#475569', textTransform: 'uppercase', fontWeight: 800 }}>Gross Billed Hospital Revenue</span>
-                <div style={{ fontSize: '1.6rem', fontWeight: 900, color: '#0f172a', lineHeight: 1.1 }}>{curr.grossRev}</div>
+                <div style={{ fontSize: 'clamp(1.15rem, 2.5vw, 1.6rem)', fontWeight: 900, color: '#0f172a', lineHeight: 1.1 }}>{curr.grossRev}</div>
                 <span style={{ fontSize: '0.7rem', color: '#0369a1', fontWeight: 700 }}>Net Operating Margin: {curr.netMargin}</span>
               </div>
             </div>
@@ -190,7 +190,7 @@ export const Slide23MISAnalytics: React.FC = () => {
               </div>
               <div>
                 <span style={{ fontSize: '0.72rem', color: '#475569', textTransform: 'uppercase', fontWeight: 800 }}>OPD Encounters Footfall</span>
-                <div style={{ fontSize: '1.6rem', fontWeight: 900, color: '#0f172a', lineHeight: 1.1 }}>{curr.opdFootfall}</div>
+                <div style={{ fontSize: 'clamp(1.15rem, 2.5vw, 1.6rem)', fontWeight: 900, color: '#0f172a', lineHeight: 1.1 }}>{curr.opdFootfall}</div>
                 <span style={{ fontSize: '0.7rem', color: '#c2410c', fontWeight: 700 }}>Lab TAT: {curr.labTAT}</span>
               </div>
             </div>

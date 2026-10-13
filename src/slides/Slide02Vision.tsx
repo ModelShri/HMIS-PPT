@@ -37,18 +37,19 @@ export const Slide02Vision: React.FC<Slide02VisionProps> = ({ onJumpToSlide, onS
   };
 
   return (
-    <div style={{
+    <div className="vision-slide-container" style={{
       position: 'relative',
       width: '100%',
-      height: '100%',
+      minHeight: '100%',
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'space-between',
+      gap: 'clamp(10px, 1.8vw, 18px)',
       background: 'radial-gradient(ellipse at 70% 30%, #fdf4ff 0%, #f8faff 40%, #eff6ff 80%, #f0fdf4 100%)',
       borderRadius: 'var(--radius-xl)',
-      padding: '20px 28px 16px 28px',
+      padding: 'clamp(14px, 2.2vw, 24px) clamp(16px, 2.8vw, 28px)',
       boxSizing: 'border-box',
-      overflow: 'hidden',
+      overflowY: 'auto',
+      overflowX: 'hidden',
       userSelect: 'none'
     }}>
       {/* Background Soft 3D Cloud Puffs */}
@@ -80,17 +81,19 @@ export const Slide02Vision: React.FC<Slide02VisionProps> = ({ onJumpToSlide, onS
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        gap: '8px',
         width: '100%',
         zIndex: 2,
-        marginBottom: '2px'
+        marginBottom: '6px'
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
           <div style={{
             background: '#f3e8ff',
             border: '1.5px solid #d8b4fe',
             borderRadius: '9999px',
             padding: '3px 12px',
-            fontSize: '0.72rem',
+            fontSize: 'var(--font-size-xs)',
             fontWeight: 800,
             color: '#7e22ce',
             letterSpacing: '0.04em'
@@ -102,7 +105,7 @@ export const Slide02Vision: React.FC<Slide02VisionProps> = ({ onJumpToSlide, onS
             border: '1.5px solid #cbd5e1',
             borderRadius: '9999px',
             padding: '3px 10px',
-            fontSize: '0.72rem',
+            fontSize: 'var(--font-size-xs)',
             fontWeight: 700,
             color: '#475569'
           }}>
@@ -118,7 +121,7 @@ export const Slide02Vision: React.FC<Slide02VisionProps> = ({ onJumpToSlide, onS
           border: '1.5px solid #f0abfc',
           borderRadius: '9999px',
           padding: '4px 12px',
-          fontSize: '0.72rem',
+          fontSize: 'var(--font-size-xs)',
           fontWeight: 800,
           color: '#c026d3'
         }}>
@@ -128,13 +131,11 @@ export const Slide02Vision: React.FC<Slide02VisionProps> = ({ onJumpToSlide, onS
       </div>
 
       {/* MIDDLE SECTION: Headline + Our Vision Card + 3D Hospital Artwork */}
-      <div style={{
+      <div className="vision-middle-grid" style={{
         display: 'grid',
-        gridTemplateColumns: '1.05fr 1.15fr',
-        gap: '24px',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))',
+        gap: 'clamp(14px, 2.2vw, 24px)',
         alignItems: 'center',
-        flex: 1,
-        minHeight: 0,
         zIndex: 2
       }}>
         {/* LEFT COLUMN: Headline & "Our Vision" Card */}
@@ -142,13 +143,13 @@ export const Slide02Vision: React.FC<Slide02VisionProps> = ({ onJumpToSlide, onS
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          gap: '14px'
+          gap: 'clamp(10px, 1.5vw, 14px)'
         }}>
           {/* Main Title */}
           <div>
             <h1 style={{
               fontFamily: 'var(--font-heading)',
-              fontSize: '2.4rem',
+              fontSize: 'clamp(1.5rem, 3.2vw + 0.3rem, 2.4rem)',
               fontWeight: 900,
               lineHeight: 1.15,
               color: '#0f2b5c',
@@ -230,14 +231,15 @@ export const Slide02Vision: React.FC<Slide02VisionProps> = ({ onJumpToSlide, onS
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          minHeight: '220px'
         }}>
           <div style={{
             position: 'relative',
             width: '100%',
             maxWidth: '680px',
             height: '100%',
-            maxHeight: '420px',
+            maxHeight: 'clamp(220px, 35vh, 420px)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center'
@@ -314,10 +316,10 @@ export const Slide02Vision: React.FC<Slide02VisionProps> = ({ onJumpToSlide, onS
       </div>
 
       {/* 4 DISTINCT COLORED CLAYMORPHIC CARDS (Separate Color for Each Box) */}
-      <div style={{
+      <div className="vision-cards-grid" style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(4, 1fr)',
-        gap: '12px',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(160px, 22vw, 260px), 1fr))',
+        gap: 'clamp(8px, 1.2vw, 12px)',
         marginTop: '8px',
         marginBottom: '8px',
         zIndex: 2
@@ -560,7 +562,7 @@ export const Slide02Vision: React.FC<Slide02VisionProps> = ({ onJumpToSlide, onS
       </div>
 
       {/* BOTTOM RIBBON: Translucent Dock with 5 Modules + Explore Button */}
-      <div style={{
+      <div className="vision-bottom-dock" style={{
         background: 'rgba(255, 255, 255, 0.94)',
         backdropFilter: 'blur(12px)',
         borderRadius: '18px',
@@ -570,10 +572,13 @@ export const Slide02Vision: React.FC<Slide02VisionProps> = ({ onJumpToSlide, onS
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
+        flexWrap: 'wrap',
         gap: '12px',
         zIndex: 5
       }}>
-        {/* Module 1 */}
+        {/* 5 Vision Pillars / Modules */}
+        <div className="vision-dock-modules" style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 'clamp(8px, 1.4vw, 14px)' }}>
+          {/* Module 1 */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <div style={{
             width: '28px',
@@ -593,7 +598,7 @@ export const Slide02Vision: React.FC<Slide02VisionProps> = ({ onJumpToSlide, onS
           </div>
         </div>
 
-        <div style={{ width: '1px', height: '22px', background: '#cbd5e1' }} />
+        <div className="vision-dock-divider" style={{ width: '1px', height: '22px', background: '#cbd5e1' }} />
 
         {/* Module 2 */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -615,7 +620,7 @@ export const Slide02Vision: React.FC<Slide02VisionProps> = ({ onJumpToSlide, onS
           </div>
         </div>
 
-        <div style={{ width: '1px', height: '22px', background: '#cbd5e1' }} />
+        <div className="vision-dock-divider" style={{ width: '1px', height: '22px', background: '#cbd5e1' }} />
 
         {/* Module 3 */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -637,7 +642,7 @@ export const Slide02Vision: React.FC<Slide02VisionProps> = ({ onJumpToSlide, onS
           </div>
         </div>
 
-        <div style={{ width: '1px', height: '22px', background: '#cbd5e1' }} />
+        <div className="vision-dock-divider" style={{ width: '1px', height: '22px', background: '#cbd5e1' }} />
 
         {/* Module 4 */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -659,7 +664,7 @@ export const Slide02Vision: React.FC<Slide02VisionProps> = ({ onJumpToSlide, onS
           </div>
         </div>
 
-        <div style={{ width: '1px', height: '22px', background: '#cbd5e1' }} />
+        <div className="vision-dock-divider" style={{ width: '1px', height: '22px', background: '#cbd5e1' }} />
 
         {/* Module 5 */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -680,9 +685,11 @@ export const Slide02Vision: React.FC<Slide02VisionProps> = ({ onJumpToSlide, onS
             <div style={{ fontSize: '0.68rem', color: '#64748b', lineHeight: 1.1 }}>Decisions</div>
           </div>
         </div>
+        </div>
 
         {/* Action Button: Explore the System */}
         <button
+          className="vision-dock-btn"
           onClick={onStart}
           style={{
             background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #c026d3 100%)',

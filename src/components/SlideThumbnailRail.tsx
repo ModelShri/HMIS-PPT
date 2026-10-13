@@ -109,6 +109,7 @@ export const SlideThumbnailRail: React.FC<SlideThumbnailRailProps> = ({
   if (isCollapsed) {
     return (
       <aside
+        className="ppt-thumbnail-rail-collapsed"
         style={{
           width: '42px',
           height: '100%',

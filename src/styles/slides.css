@@ -54,38 +54,42 @@
 /* Top App Header / Bar */
 .presentation-topbar {
   position: relative;
-  z-index: 10;
+  z-index: 20;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 28px;
-  background: rgba(255, 255, 255, 0.85);
+  padding: clamp(6px, 1.2vw, 12px) clamp(12px, 2vw, 28px);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(16px);
-  border-bottom: 2px solid #cbd5e1;
-  height: 60px;
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1.5px solid #cbd5e1;
+  height: clamp(50px, 6vh, 60px);
+  gap: 12px;
 }
 
 .presentation-logo-group {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: clamp(6px, 1vw, 12px);
+  flex-shrink: 0;
 }
 
 .presentation-logo-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 12px;
+  width: clamp(32px, 3.5vw, 38px);
+  height: clamp(32px, 3.5vw, 38px);
+  border-radius: 11px;
   background: linear-gradient(135deg, #4c6ef5, #3b5bdb);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 12px rgba(59, 91, 219, 0.35);
+  flex-shrink: 0;
 }
 
 .presentation-brand-title {
   font-family: var(--font-heading);
-  font-size: 1.05rem;
+  font-size: var(--font-size-h3);
   font-weight: 800;
   letter-spacing: -0.02em;
   color: #1e293b;
@@ -95,7 +99,7 @@
 }
 
 .presentation-brand-sub {
-  font-size: 0.75rem;
+  font-size: var(--font-size-xs);
   font-weight: 600;
   color: #64748b;
   background: #e2e8f0;
@@ -103,18 +107,27 @@
   border-radius: var(--radius-pill);
 }
 
+.presentation-search-box {
+  position: relative;
+  width: clamp(140px, 22vw, 320px);
+  display: flex;
+  align-items: center;
+  transition: width var(--transition-normal);
+}
+
 .presentation-top-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: clamp(6px, 1vw, 10px);
+  flex-shrink: 0;
 }
 
 .top-action-btn {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 14px;
-  font-size: 0.85rem;
+  padding: clamp(6px, 0.8vw, 8px) clamp(8px, 1vw, 14px);
+  font-size: var(--font-size-sm);
   font-weight: 600;
   border-radius: var(--radius-pill);
   border: 1px solid rgba(255, 255, 255, 0.8);
@@ -123,6 +136,7 @@
   color: var(--text-main);
   cursor: pointer;
   transition: all var(--transition-fast);
+  white-space: nowrap;
 }
 
 .top-action-btn:hover {
@@ -137,6 +151,11 @@
   box-shadow: 0 4px 12px rgba(59, 91, 219, 0.4);
 }
 
+/* Mobile Floating Navigation Arrows (Hidden by default on Desktop) */
+.mobile-nav-arrow {
+  display: none;
+}
+
 /* PowerPoint Workspace container holding Thumbnail Rail and Slide Stage */
 .ppt-workspace {
   flex: 1;
@@ -145,6 +164,7 @@
   overflow: hidden;
   z-index: 5;
   width: 100%;
+  min-height: 0;
 }
 
 /* Main Presentation Slide Stage (Scales smoothly to screen) */
@@ -155,8 +175,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 24px;
+  padding: clamp(6px, 1.4vw, 18px);
   overflow: hidden;
+  min-width: 0;
+  min-height: 0;
 }
 
 .slide-canvas-cover {
@@ -177,7 +199,7 @@
   background: radial-gradient(ellipse at 70% 25%, #fdf4ff 0%, #f8faff 40%, #eff6ff 80%, #f0fdf4 100%);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border-radius: var(--radius-xl);
+  border-radius: clamp(16px, 2.2vw, 28px);
   border: 2.5px solid #818cf8;
   outline: 1.5px solid rgba(129, 140, 248, 0.3);
   outline-offset: 4px;
@@ -185,9 +207,10 @@
     0 24px 60px rgba(99, 102, 241, 0.16),
     0 4px 18px rgba(168, 85, 247, 0.16),
     inset 0 2px 4px rgba(255, 255, 255, 0.95);
-  padding: 24px 32px;
+  padding: clamp(14px, 2vw, 32px);
   overflow: hidden;
   box-sizing: border-box;
+  min-height: 0;
 }
 
 /* Slide Header Area */
@@ -195,49 +218,54 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 24px;
+  margin-bottom: clamp(12px, 1.8vw, 24px);
   flex-shrink: 0;
+  gap: 12px;
 }
 
 .slide-title-wrap {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: clamp(3px, 0.6vw, 6px);
+  min-width: 0;
 }
 
 .slide-badge-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: clamp(6px, 1vw, 10px);
+  flex-wrap: wrap;
 }
 
 .slide-section-badge {
   font-family: var(--font-heading);
-  font-size: 0.78rem;
+  font-size: var(--font-size-xs);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  padding: 4px 12px;
+  padding: clamp(3px, 0.5vw, 5px) clamp(8px, 1vw, 12px);
   border-radius: var(--radius-pill);
   background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
   color: #3730a3;
   box-shadow: var(--clay-shadow-sm);
+  white-space: nowrap;
 }
 
 .slide-number-tag {
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: var(--font-size-xs);
   font-weight: 700;
   color: #64748b;
   background: rgba(255, 255, 255, 0.8);
-  padding: 3px 10px;
+  padding: clamp(2px, 0.4vw, 4px) clamp(6px, 0.8vw, 10px);
   border-radius: var(--radius-pill);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  white-space: nowrap;
 }
 
 .slide-title {
   font-family: var(--font-heading);
-  font-size: 2.1rem;
+  font-size: var(--font-size-title);
   font-weight: 800;
   letter-spacing: -0.03em;
   color: #0f172a;
@@ -246,7 +274,7 @@
 }
 
 .slide-subtitle {
-  font-size: 1.02rem;
+  font-size: var(--font-size-subtitle);
   color: #475569;
   line-height: 1.4;
   margin: 0;
@@ -259,9 +287,11 @@
   position: relative;
   overflow-y: auto;
   overflow-x: hidden;
-  padding-right: 6px;
+  padding-right: 4px;
   display: flex;
   flex-direction: column;
+  min-height: 0;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Custom Scrollbar for slide content */
@@ -466,12 +496,13 @@
 .notes-drawer {
   position: fixed;
   right: 0;
-  top: 60px;
-  bottom: 64px;
-  width: 420px;
+  top: clamp(50px, 6vh, 60px);
+  bottom: clamp(40px, 5vh, 50px);
+  width: min(420px, 100vw);
+  max-width: 100%;
   background: #ffffff;
   border-left: 1px solid #e2e8f0;
-  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.1);
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.15);
   z-index: 50;
   display: flex;
   flex-direction: column;
@@ -484,7 +515,7 @@
 }
 
 .notes-header {
-  padding: 16px 20px;
+  padding: clamp(12px, 1.5vw, 16px) clamp(14px, 2vw, 20px);
   border-bottom: 1px solid #e2e8f0;
   display: flex;
   align-items: center;
@@ -492,22 +523,609 @@
 }
 
 .notes-body {
-  padding: 20px;
+  padding: clamp(14px, 2vw, 20px);
   overflow-y: auto;
-  font-size: 0.92rem;
+  font-size: var(--font-size-body);
   line-height: 1.6;
   color: #334155;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* Responsive adjustments */
+/* ==========================================================================
+   MULTI-TIER RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+
+/* 1. TABLET & COMPACT LAPTOP BREAKPOINT (<= 1024px) */
 @media (max-width: 1024px) {
+  /* Unified Stage Scrolling Engine: Stage is the single smooth scroll container */
+  .ppt-workspace {
+    overflow: hidden !important;
+  }
+
+  .presentation-stage {
+    display: block !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    height: 100% !important;
+    padding: clamp(6px, 1.5vw, 14px) !important;
+    padding-bottom: 76px !important; /* Space above bottom footer & floating controls */
+    box-sizing: border-box !important;
+  }
+
+  /* Slide Canvas expands naturally to fit full slide content without scroll trapping */
   .slide-canvas {
-    padding: 20px 24px;
+    aspect-ratio: auto !important;
+    height: auto !important;
+    min-height: calc(100% - 12px) !important;
+    max-height: none !important;
+    width: 100% !important;
+    padding: clamp(14px, 2.2vw, 24px) !important;
+    overflow: visible !important;
+    display: flex !important;
+    flex-direction: column !important;
+    box-sizing: border-box !important;
   }
-  .slide-title {
-    font-size: 1.6rem;
+
+  .slide-canvas-cover {
+    padding: 0 !important;
   }
+
+  .vision-slide-container,
+  .cover-slide-container {
+    overflow-y: visible !important;
+    height: auto !important;
+    min-height: 100% !important;
+  }
+
+  /* Slide Content container expands to natural content height */
+  .slide-content {
+    overflow: visible !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    flex: none !important;
+    padding-right: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* All main slide split grids stack smoothly into full width */
+  .slide-content > div[style*="gridTemplateColumns"],
+  .slide-content > div[style*="grid-template-columns"],
+  .slide-content div[style*="1.05fr"],
+  .slide-content div[style*="1.1fr"],
+  .slide-content div[style*="1.15fr"],
+  .slide-content div[style*="1.2fr"],
+  .slide-content div[style*="1.25fr"],
+  .slide-content div[style*="1.3fr"],
+  .slide-content div[style*="1.35fr"],
+  .slide-content div[style*="1.4fr"],
+  .slide-content div[style*="1.5fr"],
+  .slide-grid-2col {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    gap: clamp(12px, 2vw, 20px) !important;
+  }
+
+  /* Ensure root flex containers in slides expand to fit stacked children */
+  .slide-content > div[style*="display: flex"],
+  .slide-content > div[style*="display:flex"] {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+  }
+
+  /* Presentation Topbar adaptations */
+  .presentation-topbar {
+    padding: 8px 14px;
+  }
+
+  .presentation-search-box {
+    width: clamp(130px, 18vw, 220px);
+  }
+
+  /* Footer progress bar hidden on tablet to preserve space */
   .presentation-progress-track {
     display: none;
+  }
+
+  /* Thumbnail rail slides in as an overlay drawer on <= 1024px */
+  .ppt-thumbnail-rail {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: min(240px, 80vw) !important;
+    z-index: 30 !important;
+    box-shadow: 8px 0 24px rgba(15, 23, 42, 0.22) !important;
+  }
+
+  .ppt-thumbnail-rail-collapsed {
+    width: 0 !important;
+    display: none !important;
+  }
+
+  /* Rail Backdrop */
+  .ppt-rail-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.35);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 25;
+  }
+
+  /* Modal responsive sizing */
+  .toc-modal {
+    max-height: 90vh;
+    width: calc(100vw - 24px);
+  }
+
+  .toc-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    padding: 16px;
+  }
+}
+
+/* 2. TABLET PORTRAIT & MOBILE BREAKPOINT (<= 768px) */
+@media (max-width: 768px) {
+  .presentation-stage {
+    padding: 6px;
+  }
+
+  .slide-canvas {
+    border-radius: 16px !important;
+    border-width: 2px !important;
+    padding: clamp(12px, 2.5vw, 20px) !important;
+  }
+
+  .slide-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  /* 4-column sub-grids adapt to 2-columns on tablet portrait */
+  div[style*="repeat(4, 1fr)"],
+  div[style*="repeat(4,1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  /* 3-column sub-grids adapt flexibly */
+  div[style*="repeat(3, 1fr)"],
+  div[style*="repeat(3,1fr)"] {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr)) !important;
+    gap: 8px !important;
+  }
+
+  /* Module pill banner adaptivity */
+  div[style*="var(--radius-pill)"][style*="justify-content: space-between"],
+  div[style*="var(--radius-pill)"][style*="justifyContent: 'space-between'"] {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    border-radius: var(--radius-md) !important;
+    gap: 8px !important;
+    padding: 8px 12px !important;
+  }
+
+  div[style*="var(--radius-pill)"] > div[style*="display: flex"],
+  div[style*="var(--radius-pill)"] > div[style*="display:flex"] {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: thin;
+    padding-bottom: 4px !important;
+    flex-wrap: nowrap !important;
+    max-width: 100% !important;
+  }
+
+  div[style*="var(--radius-pill)"] span,
+  div[style*="var(--radius-pill)"] button {
+    flex-shrink: 0 !important;
+  }
+
+  /* Horizontal touch-scroll for tab headers and filter pills */
+  div[style*="borderBottom"][style*="display: flex"],
+  div[style*="border-bottom"][style*="display: flex"] {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: thin;
+    max-width: 100% !important;
+    padding-bottom: 8px !important;
+  }
+
+  div[style*="borderBottom"][style*="display: flex"] > button,
+  div[style*="border-bottom"][style*="display: flex"] > button {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  /* Status legends wrap cleanly */
+  div[style*="BED STATUS"],
+  div[style*="Bed status"],
+  div[style*="alignItems: center"][style*="gap: 14px"] {
+    flex-wrap: wrap !important;
+    border-radius: var(--radius-md) !important;
+  }
+
+  /* Data tables become horizontally scrollable to prevent column compression */
+  div[style*="border: 2px solid #cbd5e1"][style*="border-radius: var(--radius-md)"],
+  div[style*="border: '2px solid #cbd5e1'"][style*="borderRadius: 'var(--radius-md)'"] {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    max-width: 100% !important;
+  }
+
+  /* Slide 02 Vision Bottom Dock: Full Visibility on Mobile */
+  .vision-bottom-dock {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 12px 14px !important;
+    gap: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .vision-dock-modules {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)) !important;
+    gap: 8px 12px !important;
+    width: 100% !important;
+  }
+
+  .vision-dock-divider {
+    display: none !important;
+  }
+
+  .vision-dock-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 12px 20px !important;
+    font-size: 0.95rem !important;
+    margin-left: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .vision-middle-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .vision-cards-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  /* Slide 01 Cover Dock: Responsive Grid on Mobile */
+  .cover-bottom-dock {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  .cover-dock-ribbon {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)) !important;
+    gap: 8px 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .cover-dock-divider {
+    display: none !important;
+  }
+
+  /* MASTER-DETAIL RIGHT-SIDE DATA VISIBILITY ON MOBILE (Slide 3 to Slide 26) */
+  /* Ensure all right-side detail panels take full width and are never clipped horizontally */
+  .slide-content div[style*="1.05fr"] > div,
+  .slide-content div[style*="1.1fr"] > div,
+  .slide-content div[style*="1.15fr"] > div,
+  .slide-content div[style*="1.2fr"] > div,
+  .slide-content div[style*="1.25fr"] > div,
+  .slide-content div[style*="1.3fr"] > div,
+  .slide-content div[style*="1.35fr"] > div,
+  .slide-content div[style*="1.4fr"] > div,
+  .slide-content div[style*="1.5fr"] > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Compact left-side selectors into responsive 2-column grids on mobile so the right-side inspector/matrix is immediately in view */
+  /* Architecture 6 Layers Stack (Slide 4) */
+  .slide-content div[style*="1.15fr 1fr"] > div:first-child > div:last-child {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 6px !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* Master Config Categories List (Slide 6) */
+  .slide-content div[style*="1.05fr 1.35fr"] > div:first-child > div:last-child {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 6px !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* Slide 08 RBAC: Responsive 2-column role picker & full visibility of Module Matrix */
+  .rbac-slide-container {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    height: auto !important;
+  }
+
+  .rbac-roles-col {
+    gap: 8px !important;
+    height: auto !important;
+  }
+
+  .rbac-roles-list {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
+    gap: 6px !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding-right: 0 !important;
+  }
+
+  .rbac-roles-list > div {
+    padding: 7px 10px !important;
+    min-height: 46px !important;
+  }
+
+  .rbac-roles-list h4 {
+    font-size: 0.76rem !important;
+    line-height: 1.15 !important;
+  }
+
+  .rbac-roles-list span {
+    font-size: 0.62rem !important;
+  }
+
+  .rbac-matrix-card {
+    padding: 14px !important;
+    gap: 12px !important;
+    margin-top: 6px !important;
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .rbac-modules-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 6px !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding-right: 0 !important;
+  }
+
+  /* Bed Management Census Matrix (Slide 14) */
+  .slide-content div[style*="1.4fr 1fr"] > div:first-child > div[style*="repeat(4, 1fr)"] {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 6px !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* Blood Bank 8-Group Matrix (Slide 18) */
+  .slide-content div[style*="1.25fr 1fr"] > div:first-child > div[style*="repeat(4, 1fr)"] {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 6px !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* Right-side cards gain a prominent top accent indicating inspection/details when stacked on mobile */
+  .slide-content div[style*="1.05fr"] > div:last-child.clay-card,
+  .slide-content div[style*="1.1fr"] > div:last-child.clay-card,
+  .slide-content div[style*="1.15fr"] > div:last-child.clay-card,
+  .slide-content div[style*="1.2fr"] > div:last-child.clay-card,
+  .slide-content div[style*="1.25fr"] > div:last-child.clay-card,
+  .slide-content div[style*="1.3fr"] > div:last-child.clay-card,
+  .slide-content div[style*="1.35fr"] > div:last-child.clay-card,
+  .slide-content div[style*="1.4fr"] > div:last-child.clay-card,
+  .slide-content div[style*="1.5fr"] > div:last-child.clay-card {
+    position: relative;
+    margin-top: 6px;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .clay-card {
+    padding: clamp(12px, 2.2vw, 18px) !important;
+  }
+
+  /* Mobile Floating Mid-Screen Navigation Arrows (Both Sides) */
+  .mobile-nav-arrow {
+    display: flex !important;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 99;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 2px solid #818cf8;
+    color: #4338ca;
+    box-shadow: 
+      0 6px 20px rgba(99, 102, 241, 0.35),
+      0 2px 6px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+
+  .mobile-nav-arrow:active {
+    transform: translateY(-50%) scale(0.9);
+    background: #e0e7ff;
+  }
+
+  .mobile-nav-arrow:disabled {
+    opacity: 0.22;
+    pointer-events: none;
+    border-color: #cbd5e1;
+    color: #94a3b8;
+    box-shadow: none;
+  }
+
+  .mobile-nav-prev {
+    left: 8px;
+  }
+
+  .mobile-nav-next {
+    right: 8px;
+  }
+
+  /* Hide verbose text labels in top action buttons */
+  .top-action-btn span:not(.icon-only-visible) {
+    display: none;
+  }
+
+  .top-action-btn {
+    padding: 7px 10px;
+  }
+
+  /* Compact footer for touch screens */
+  .presentation-footer {
+    padding: 4px 10px;
+    height: 44px;
+    font-size: 0.75rem;
+  }
+
+  /* Hide desktop status indicators in footer on phones & portrait tablets */
+  .footer-desktop-status {
+    display: none !important;
+  }
+
+  .footer-zoom-controls {
+    display: none !important;
+  }
+
+  .notes-drawer {
+    top: 0;
+    bottom: 0;
+    width: 100vw;
+  }
+}
+
+/* 3. SMALL PHONE BREAKPOINT (<= 480px) */
+@media (max-width: 480px) {
+  .presentation-topbar {
+    padding: 6px 10px;
+    height: 48px;
+  }
+
+  .presentation-brand-sub {
+    display: none !important;
+  }
+
+  .presentation-search-box {
+    display: none !important;
+  }
+
+  .presentation-top-actions {
+    gap: 4px;
+  }
+
+  /* Stack 2-column, 3-column and 4-column sub-cards on narrow phones */
+  div[style*="repeat(4, 1fr)"],
+  div[style*="repeat(4,1fr)"],
+  div[style*="repeat(3, 1fr)"],
+  div[style*="repeat(3,1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  div[style*="repeat(2, 1fr)"]:not(.stat-badge-grid):not(.vitals-grid),
+  div[style*="repeat(2,1fr)"]:not(.stat-badge-grid):not(.vitals-grid),
+  div[style*="1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  .vision-dock-modules {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .vision-cards-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .cover-dock-ribbon {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Keep compact 2-col for small badges/stats */
+  .stat-badge-grid,
+  .vitals-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .slide-title {
+    font-size: clamp(1.15rem, 4.8vw, 1.45rem);
+  }
+
+  .slide-subtitle {
+    font-size: clamp(0.76rem, 3vw, 0.88rem);
+  }
+
+  .clay-card {
+    padding: 10px 12px !important;
+  }
+
+  .toc-overlay {
+    padding: 8px;
+  }
+
+  .toc-modal {
+    width: 100%;
+    max-height: 94vh;
+  }
+
+  .toc-grid {
+    grid-template-columns: 1fr;
+    padding: 12px;
+  }
+}
+
+/* 4. SHORT WINDOWS / LANDSCAPE PHONES BREAKPOINT (height <= 680px) */
+@media (max-height: 680px) {
+  .presentation-topbar {
+    height: 46px;
+    padding: 4px 12px;
+  }
+
+  .presentation-footer {
+    height: 38px;
+    padding: 2px 10px;
+  }
+
+  .slide-canvas {
+    aspect-ratio: auto !important;
+    height: 100% !important;
+    padding: 12px 16px !important;
+  }
+
+  .slide-header {
+    margin-bottom: 8px;
   }
 }

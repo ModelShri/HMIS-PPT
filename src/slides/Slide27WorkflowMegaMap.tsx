@@ -68,21 +68,21 @@ export const Slide27WorkflowMegaMap: React.FC<Slide27WorkflowMegaMapProps> = ({ 
   const filteredNodes = selectedCategory === 'All' ? nodes : nodes.filter(n => n.category === selectedCategory);
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '1.45fr 1fr', gap: '24px', height: '100%' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))', gap: 'clamp(14px, 2vw, 24px)', height: '100%' }}>
       {/* Left: Interactive 16-Module Mega Topology Grid with High-Contrast Borders */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
           <div>
-            <h4 style={{ margin: 0, fontSize: '0.92rem', color: '#1e293b', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+            <h4 style={{ margin: 0, fontSize: 'var(--font-size-h4)', color: '#1e293b', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
               HMIS Master Architecture Topology (16 Core Modules)
             </h4>
-            <span style={{ fontSize: '0.76rem', color: '#64748b', fontWeight: 600 }}>
+            <span style={{ fontSize: 'var(--font-size-sm)', color: '#64748b', fontWeight: 600 }}>
               Select any node to inspect upstream inputs, downstream outputs, and ASP.NET Core routes
             </span>
           </div>
 
           {/* Category Filter */}
-          <div style={{ display: 'flex', gap: '6px' }}>
+          <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
             {['All', 'Clinical', 'Diagnostic', 'Support', 'Administrative'].map(cat => (
               <button
                 key={cat}
@@ -107,7 +107,7 @@ export const Slide27WorkflowMegaMap: React.FC<Slide27WorkflowMegaMapProps> = ({ 
         </div>
 
         {/* 16-Node Interactive Grid with High-Contrast Distinct Borders */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '10px', flex: 1, overflowY: 'auto', paddingRight: '4px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(clamp(110px, 14vw, 150px), 1fr))', gap: '8px', flex: 1, overflowY: 'auto', paddingRight: '4px' }}>
           {filteredNodes.map(n => {
             const isSelected = n.id === activeNode.id;
             const Icon = n.icon;

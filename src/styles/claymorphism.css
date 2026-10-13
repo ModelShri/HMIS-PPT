@@ -99,8 +99,11 @@
 .clay-table-box {
   border: 2px solid #cbd5e1;
   border-radius: var(--radius-md);
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   background: #ffffff;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
 }
 
 .clay-table-head {
@@ -123,11 +126,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: clamp(6px, 1vw, 8px);
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 0.95rem;
-  padding: 12px 24px;
+  font-size: var(--font-size-body);
+  padding: clamp(8px, 1.2vw, 12px) clamp(14px, 2vw, 24px);
   border-radius: var(--radius-pill);
   border: 2px solid #94a3b8;
   cursor: pointer;
@@ -140,6 +143,7 @@
   user-select: none;
   outline: none;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .clay-button:hover {
@@ -191,10 +195,10 @@
 .clay-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
+  gap: clamp(4px, 0.8vw, 6px);
+  padding: clamp(4px, 0.6vw, 6px) clamp(8px, 1.2vw, 14px);
   border-radius: var(--radius-pill);
-  font-size: 0.78rem;
+  font-size: var(--font-size-xs);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -203,6 +207,7 @@
   box-shadow: 
     3px 4px 8px rgba(148, 163, 184, 0.2),
     -2px -2px 6px rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
 }
 
 .clay-badge-lavender {
@@ -237,8 +242,8 @@
 
 /* 3D Round Icon Bubble */
 .clay-icon-bubble {
-  width: 48px;
-  height: 48px;
+  width: clamp(36px, 4.2vw, 48px);
+  height: clamp(36px, 4.2vw, 48px);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -254,8 +259,8 @@
 }
 
 .clay-icon-bubble-lg {
-  width: 64px;
-  height: 64px;
+  width: clamp(48px, 5.8vw, 64px);
+  height: clamp(48px, 5.8vw, 64px);
 }
 
 .clay-icon-bubble:hover {
@@ -271,7 +276,7 @@
   box-shadow: 
     inset 3px 3px 6px rgba(148, 163, 184, 0.28),
     inset -2px -2px 5px rgba(255, 255, 255, 0.9);
-  padding: 16px;
+  padding: clamp(10px, 1.5vw, 16px);
 }
 
 /* Gentle Floating Animation */

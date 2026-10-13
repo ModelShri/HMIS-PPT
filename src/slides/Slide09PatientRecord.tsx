@@ -202,25 +202,25 @@ export const Slide09PatientRecord: React.FC = () => {
           )}
 
           {activeTab === 'vitals' && (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px' }}>
+            <div className="vitals-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px' }}>
               <div className="clay-inset-well">
                 <span style={{ fontSize: '0.75rem', color: '#64748b' }}>Blood Pressure (Sitting)</span>
-                <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#1e293b', marginTop: '4px' }}>128 / 82 <span style={{ fontSize: '0.8rem', fontWeight: 500 }}>mmHg</span></div>
+                <div style={{ fontSize: 'clamp(1.1rem, 2.4vw, 1.4rem)', fontWeight: 800, color: '#1e293b', marginTop: '4px' }}>128 / 82 <span style={{ fontSize: '0.8rem', fontWeight: 500 }}>mmHg</span></div>
                 <span style={{ fontSize: '0.72rem', color: '#10b981', fontWeight: 600 }}>Normal Range</span>
               </div>
               <div className="clay-inset-well">
                 <span style={{ fontSize: '0.75rem', color: '#64748b' }}>Heart Rate (Resting)</span>
-                <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#e11d48', marginTop: '4px' }}>74 <span style={{ fontSize: '0.8rem', fontWeight: 500 }}>BPM</span></div>
+                <div style={{ fontSize: 'clamp(1.1rem, 2.4vw, 1.4rem)', fontWeight: 800, color: '#e11d48', marginTop: '4px' }}>74 <span style={{ fontSize: '0.8rem', fontWeight: 500 }}>BPM</span></div>
                 <span style={{ fontSize: '0.72rem', color: '#10b981', fontWeight: 600 }}>Regular Pulse</span>
               </div>
               <div className="clay-inset-well">
                 <span style={{ fontSize: '0.75rem', color: '#64748b' }}>Oxygen Saturation (SpO2)</span>
-                <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#0284c7', marginTop: '4px' }}>99 <span style={{ fontSize: '0.8rem', fontWeight: 500 }}>%</span></div>
+                <div style={{ fontSize: 'clamp(1.1rem, 2.4vw, 1.4rem)', fontWeight: 800, color: '#0284c7', marginTop: '4px' }}>99 <span style={{ fontSize: '0.8rem', fontWeight: 500 }}>%</span></div>
                 <span style={{ fontSize: '0.72rem', color: '#10b981', fontWeight: 600 }}>Room Air</span>
               </div>
               <div className="clay-inset-well">
                 <span style={{ fontSize: '0.75rem', color: '#64748b' }}>Body Temperature</span>
-                <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#ea580c', marginTop: '4px' }}>98.4 <span style={{ fontSize: '0.8rem', fontWeight: 500 }}>°F</span></div>
+                <div style={{ fontSize: 'clamp(1.1rem, 2.4vw, 1.4rem)', fontWeight: 800, color: '#ea580c', marginTop: '4px' }}>98.4 <span style={{ fontSize: '0.8rem', fontWeight: 500 }}>°F</span></div>
                 <span style={{ fontSize: '0.72rem', color: '#10b981', fontWeight: 600 }}>Afebrile</span>
               </div>
             </div>

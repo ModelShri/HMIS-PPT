@@ -122,9 +122,9 @@ export const Slide08RBAC: React.FC = () => {
   ];
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.35fr', gap: '22px', height: '100%' }}>
+    <div className="rbac-slide-container" style={{ display: 'grid', gridTemplateColumns: '1fr 1.35fr', gap: '22px', height: '100%' }}>
       {/* Left: Role Selection Grid */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+      <div className="rbac-roles-col" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <h4 style={{ margin: 0, fontSize: '0.85rem', color: '#1e293b', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
             Admin_Master Role Security
@@ -134,7 +134,7 @@ export const Slide08RBAC: React.FC = () => {
           </span>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', overflowY: 'auto', paddingRight: '4px', maxHeight: '430px' }}>
+        <div className="rbac-roles-list" style={{ display: 'flex', flexDirection: 'column', gap: '6px', overflowY: 'auto', paddingRight: '4px', maxHeight: '430px' }}>
           {roles.map((r) => {
             const isSelected = r.role === selectedRole.role;
             return (
@@ -216,7 +216,7 @@ export const Slide08RBAC: React.FC = () => {
 
       {/* Right: Detailed Permissions Matrix with High-Contrast Borders */}
       <div 
-        className="clay-card" 
+        className="clay-card rbac-matrix-card" 
         style={{ 
           padding: '22px', 
           background: '#ffffff', 
@@ -289,7 +289,7 @@ export const Slide08RBAC: React.FC = () => {
         </div>
 
         {/* Module Access Grid with High-Contrast Green/Red Pills */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '8px', overflowY: 'auto', maxHeight: '210px', paddingRight: '4px' }}>
+        <div className="rbac-modules-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '8px', overflowY: 'auto', maxHeight: '210px', paddingRight: '4px' }}>
           {moduleList.map((mod) => {
             // @ts-expect-error dynamic key
             const isGranted = selectedRole.modules[mod.key];

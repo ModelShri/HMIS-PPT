@@ -43,48 +43,32 @@ export const PresentationFooter: React.FC<PresentationFooterProps> = ({
   const progressPercent = Math.round((currentSlide / totalSlides) * 100);
 
   return (
-    <footer
-      className="presentation-footer"
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '6px 20px',
-        background: '#ffffff',
-        borderTop: '2px solid #cbd5e1',
-        height: '42px',
-        fontSize: '0.82rem',
-        color: '#475569',
-        userSelect: 'none',
-        zIndex: 10
-      }}
-    >
+    <footer className="presentation-footer">
       {/* Left Group: Slide Indicator & Language / ASP.NET Status */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(8px, 1.2vw, 16px)', flexShrink: 0 }}>
         {/* PowerPoint style Slide counter */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 600, color: '#1e293b' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 700, color: '#1e293b', whiteSpace: 'nowrap' }}>
           <span>Slide {currentSlide} of {totalSlides}</span>
         </div>
 
-        <div style={{ width: '1px', height: '18px', background: '#cbd5e1' }} />
+        <div className="footer-desktop-status" style={{ width: '1px', height: '16px', background: '#cbd5e1' }} />
 
         {/* Locale & ASP.NET Core Indicator */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.78rem' }}>
+        <div className="footer-desktop-status" style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.76rem', whiteSpace: 'nowrap' }}>
           <span style={{
             width: '8px',
             height: '8px',
             borderRadius: '50%',
             background: '#10b981',
-            display: 'inline-block'
+            display: 'inline-block',
+            flexShrink: 0
           }} />
-          <span>ASP.NET Core MVC 9 Connected</span>
-          <span style={{ color: '#94a3b8' }}>•</span>
-          <span style={{ color: '#64748b' }}>English (India)</span>
+          <span>ASP.NET Core Connected</span>
         </div>
       </div>
 
       {/* Center Group: Prev / Next Buttons & Presentation Progress */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(8px, 1.2vw, 12px)', flexShrink: 0 }}>
         <button
           onClick={onPrev}
           disabled={currentSlide === 1}
@@ -92,11 +76,14 @@ export const PresentationFooter: React.FC<PresentationFooterProps> = ({
             background: currentSlide === 1 ? '#f1f5f9' : '#e2e8f0',
             border: '1px solid #cbd5e1',
             borderRadius: '6px',
-            padding: '3px 8px',
+            padding: '4px 10px',
             cursor: currentSlide === 1 ? 'not-allowed' : 'pointer',
             display: 'flex',
             alignItems: 'center',
-            color: currentSlide === 1 ? '#94a3b8' : '#1e293b'
+            justifyContent: 'center',
+            color: currentSlide === 1 ? '#94a3b8' : '#1e293b',
+            minWidth: '32px',
+            minHeight: '28px'
           }}
           title="Previous Slide (← or Backspace)"
         >
@@ -105,7 +92,7 @@ export const PresentationFooter: React.FC<PresentationFooterProps> = ({
 
         {/* Mini progress bar */}
         <div style={{
-          width: '140px',
+          width: 'clamp(60px, 10vw, 140px)',
           height: '6px',
           background: '#e2e8f0',
           borderRadius: '3px',
@@ -126,11 +113,14 @@ export const PresentationFooter: React.FC<PresentationFooterProps> = ({
             background: currentSlide === totalSlides ? '#f1f5f9' : '#e2e8f0',
             border: '1px solid #cbd5e1',
             borderRadius: '6px',
-            padding: '3px 8px',
+            padding: '4px 10px',
             cursor: currentSlide === totalSlides ? 'not-allowed' : 'pointer',
             display: 'flex',
             alignItems: 'center',
-            color: currentSlide === totalSlides ? '#94a3b8' : '#1e293b'
+            justifyContent: 'center',
+            color: currentSlide === totalSlides ? '#94a3b8' : '#1e293b',
+            minWidth: '32px',
+            minHeight: '28px'
           }}
           title="Next Slide (→ or Space)"
         >
@@ -138,8 +128,8 @@ export const PresentationFooter: React.FC<PresentationFooterProps> = ({
         </button>
       </div>
 
-      {/* Right Group: PowerPoint View Controls (Notes, Comments, Sorter, Fullscreen, Zoom) */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+      {/* Right Group: PowerPoint View Controls (Notes, Sorter, Rail Toggle, Fullscreen, Zoom) */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(6px, 1vw, 12px)', flexShrink: 0 }}>
         {/* Notes Button */}
         <button
           onClick={onToggleNotes}
@@ -150,8 +140,8 @@ export const PresentationFooter: React.FC<PresentationFooterProps> = ({
             padding: '4px 8px',
             display: 'flex',
             alignItems: 'center',
-            gap: '6px',
-            fontSize: '0.78rem',
+            gap: '5px',
+            fontSize: '0.76rem',
             fontWeight: 600,
             color: showNotes ? '#1d4ed8' : '#475569',
             cursor: 'pointer'
@@ -159,7 +149,7 @@ export const PresentationFooter: React.FC<PresentationFooterProps> = ({
           title="Toggle Presenter Notes (N)"
         >
           <FileText size={14} />
-          <span>Notes</span>
+          <span className="footer-desktop-status">Notes</span>
         </button>
 
         {/* Grid / Sorter View */}
@@ -172,8 +162,8 @@ export const PresentationFooter: React.FC<PresentationFooterProps> = ({
             padding: '4px 8px',
             display: 'flex',
             alignItems: 'center',
-            gap: '6px',
-            fontSize: '0.78rem',
+            gap: '5px',
+            fontSize: '0.76rem',
             fontWeight: 600,
             color: '#475569',
             cursor: 'pointer'
@@ -181,7 +171,7 @@ export const PresentationFooter: React.FC<PresentationFooterProps> = ({
           title="Slide Sorter Grid (G)"
         >
           <LayoutGrid size={14} />
-          <span>Slide Sorter</span>
+          <span className="footer-desktop-status">Sorter</span>
         </button>
 
         {/* Thumbnail Sidebar Toggle */}
@@ -220,11 +210,11 @@ export const PresentationFooter: React.FC<PresentationFooterProps> = ({
           <MonitorPlay size={15} />
         </button>
 
-        {/* Zoom Controls (like PowerPoint bottom right) */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#64748b' }}>
+        {/* Zoom Controls (PowerPoint bottom right) */}
+        <div className="footer-zoom-controls" style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#64748b' }}>
           <Minus size={13} style={{ cursor: 'pointer' }} />
           <div style={{
-            width: '60px',
+            width: '50px',
             height: '4px',
             background: '#cbd5e1',
             borderRadius: '2px',

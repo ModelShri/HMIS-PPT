@@ -90,6 +90,29 @@
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
+  /* ==========================================================================
+     RESPONSIVE FLUID TYPOGRAPHY (CLAMP-BASED)
+     ========================================================================== */
+  --font-size-hero: clamp(2rem, 5.2vw + 0.6rem, 4.4rem);
+  --font-size-h1: clamp(1.45rem, 3.2vw + 0.4rem, 2.5rem);
+  --font-size-title: clamp(1.2rem, 2.2vw + 0.4rem, 2.1rem);
+  --font-size-subtitle: clamp(0.82rem, 1.1vw + 0.35rem, 1.05rem);
+  --font-size-h2: clamp(1.1rem, 1.8vw + 0.3rem, 1.65rem);
+  --font-size-h3: clamp(0.95rem, 1.3vw + 0.25rem, 1.32rem);
+  --font-size-h4: clamp(0.84rem, 1vw + 0.2rem, 1.05rem);
+  --font-size-body: clamp(0.78rem, 0.6vw + 0.45rem, 0.96rem);
+  --font-size-sm: clamp(0.7rem, 0.4vw + 0.42rem, 0.84rem);
+  --font-size-xs: clamp(0.62rem, 0.3vw + 0.4rem, 0.74rem);
+  --font-size-stat: clamp(1.1rem, 2.2vw + 0.3rem, 1.85rem);
+
+  /* Responsive Fluid Spacing Tokens */
+  --spacing-2xs: clamp(2px, 0.4vw, 4px);
+  --spacing-xs: clamp(4px, 0.7vw, 8px);
+  --spacing-sm: clamp(8px, 1.2vw, 14px);
+  --spacing-md: clamp(12px, 1.8vw, 20px);
+  --spacing-lg: clamp(16px, 2.5vw, 28px);
+  --spacing-xl: clamp(20px, 3.5vw, 36px);
+
   /* Presentation Animation & Transitions */
   --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);

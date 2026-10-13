@@ -86,7 +86,7 @@ export const Slide07MultiBranch: React.FC = () => {
           </span>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px', flex: 1 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '12px', flex: 1 }}>
           {branches.map((b) => {
             const isSelected = b.id === selectedBranch.id;
             return (
@@ -165,7 +165,7 @@ export const Slide07MultiBranch: React.FC = () => {
         </div>
 
         {/* Live Operational Metrics */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 90px), 1fr))', gap: '8px' }}>
           <div className="clay-inset-well" style={{ padding: '10px' }}>
             <span style={{ fontSize: '0.7rem', color: '#64748b', textTransform: 'uppercase', display: 'block' }}>Inpatient Beds</span>
             <strong style={{ fontSize: '1.1rem', color: '#0f172a' }}>{selectedBranch.beds}</strong>

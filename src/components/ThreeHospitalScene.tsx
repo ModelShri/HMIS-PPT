@@ -287,10 +287,36 @@ export const ThreeHospitalScene: React.FC<ThreeHospitalSceneProps> = ({
       }, 3000);
     };
 
+    const onTouchStart = (e: TouchEvent) => {
+      if (e.touches.length === 1) {
+        isDragging = true;
+        prevMouseX = e.touches[0].clientX;
+        autoRotate = false;
+      }
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      if (!isDragging || e.touches.length !== 1) return;
+      const deltaX = e.touches[0].clientX - prevMouseX;
+      hospitalGroup.rotation.y += deltaX * rotationSpeed;
+      prevMouseX = e.touches[0].clientX;
+    };
+
+    const onTouchEnd = () => {
+      isDragging = false;
+      setTimeout(() => {
+        autoRotate = true;
+      }, 3000);
+    };
+
     const domElement = renderer.domElement;
     domElement.addEventListener('mousedown', onMouseDown);
     window.addEventListener('mousemove', onMouseMove);
     window.addEventListener('mouseup', onMouseUp);
+
+    domElement.addEventListener('touchstart', onTouchStart, { passive: true });
+    window.addEventListener('touchmove', onTouchMove, { passive: true });
+    window.addEventListener('touchend', onTouchEnd, { passive: true });
 
     // 5. Raycasting for Department Selection
     const raycaster = new THREE.Raycaster();
@@ -339,11 +365,11 @@ export const ThreeHospitalScene: React.FC<ThreeHospitalSceneProps> = ({
 
     animate();
 
-    // 7. Handle Resize
+    // 7. Handle Resize with ResizeObserver & Window Resize
     const handleResize = () => {
       if (!container) return;
-      const newWidth = container.clientWidth;
-      const newHeight = container.clientHeight;
+      const newWidth = container.clientWidth || 300;
+      const newHeight = container.clientHeight || 250;
       const newAspect = newWidth / newHeight;
 
       camera.left = -d * newAspect;
@@ -357,13 +383,24 @@ export const ThreeHospitalScene: React.FC<ThreeHospitalSceneProps> = ({
 
     window.addEventListener('resize', handleResize);
 
+    const resizeObserver = new ResizeObserver(() => {
+      handleResize();
+    });
+    resizeObserver.observe(container);
+
     return () => {
       cancelAnimationFrame(animationFrameId);
       domElement.removeEventListener('mousedown', onMouseDown);
       window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('mouseup', onMouseUp);
+
+      domElement.removeEventListener('touchstart', onTouchStart);
+      window.removeEventListener('touchmove', onTouchMove);
+      window.removeEventListener('touchend', onTouchEnd);
+
       domElement.removeEventListener('click', onClick);
       window.removeEventListener('resize', handleResize);
+      resizeObserver.disconnect();
 
       if (container.contains(domElement)) {
         container.removeChild(domElement);
@@ -376,7 +413,7 @@ export const ThreeHospitalScene: React.FC<ThreeHospitalSceneProps> = ({
     <div
       ref={mountRef}
       className={`relative w-full h-full cursor-grab active:cursor-grabbing select-none ${className}`}
-      style={{ minHeight: '380px' }}
+      style={{ minHeight: 'clamp(240px, 35vh, 420px)', width: '100%', height: '100%' }}
     />
   );
 };

@@ -36,12 +36,12 @@ export const TableOfContentsModal: React.FC<TableOfContentsModalProps> = ({
     <div className="toc-overlay" onClick={onClose}>
       <div className="toc-modal" onClick={(e) => e.stopPropagation()}>
         {/* Header */}
-        <div className="toc-header">
+        <div className="toc-header" style={{ padding: 'clamp(12px, 2vw, 20px) clamp(14px, 2.5vw, 28px)' }}>
           <div>
-            <h2 style={{ fontFamily: 'var(--font-heading)', margin: 0, fontSize: '1.4rem' }}>
+            <h2 style={{ fontFamily: 'var(--font-heading)', margin: 0, fontSize: 'var(--font-size-h3)' }}>
               Presentation Slide Deck
             </h2>
-            <p style={{ margin: '4px 0 0', color: '#64748b', fontSize: '0.85rem' }}>
+            <p style={{ margin: '4px 0 0', color: '#64748b', fontSize: 'var(--font-size-sm)' }}>
               Jump directly to any of the 28 HMIS architecture, clinical, or operational slides.
             </p>
           </div>
@@ -56,8 +56,8 @@ export const TableOfContentsModal: React.FC<TableOfContentsModalProps> = ({
         </div>
 
         {/* Filter & Search Bar */}
-        <div style={{ padding: '16px 28px', background: '#ffffff', borderBottom: '1px solid #e2e8f0', display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
-          <div style={{ position: 'relative', flex: 1, minWidth: '220px' }}>
+        <div style={{ padding: 'clamp(10px, 1.5vw, 16px) clamp(14px, 2.5vw, 28px)', background: '#ffffff', borderBottom: '1px solid #e2e8f0', display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
+          <div style={{ position: 'relative', flex: 1, minWidth: 'min(100%, 200px)' }}>
             <Search size={16} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#94a3b8' }} />
             <input
               type="text"

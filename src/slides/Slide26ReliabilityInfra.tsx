@@ -122,7 +122,7 @@ export const Slide26ReliabilityInfra: React.FC = () => {
             <span style={{ fontSize: '0.7rem', fontWeight: 700, color: '#4f46e5', textTransform: 'uppercase' }}>
               Recovery Point Objective (RPO)
             </span>
-            <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#0f172a', margin: '4px 0' }}>
+            <div style={{ fontSize: 'clamp(1.1rem, 2.4vw, 1.4rem)', fontWeight: 800, color: '#0f172a', margin: '4px 0' }}>
               &lt; 60 Secs
             </div>
             <span style={{ fontSize: '0.72rem', color: '#64748b' }}>Maximum data loss in worst-case disaster</span>
@@ -132,7 +132,7 @@ export const Slide26ReliabilityInfra: React.FC = () => {
             <span style={{ fontSize: '0.7rem', fontWeight: 700, color: '#059669', textTransform: 'uppercase' }}>
               Recovery Time Objective (RTO)
             </span>
-            <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#0f172a', margin: '4px 0' }}>
+            <div style={{ fontSize: 'clamp(1.1rem, 2.4vw, 1.4rem)', fontWeight: 800, color: '#0f172a', margin: '4px 0' }}>
               &lt; 15 Mins
             </div>
             <span style={{ fontSize: '0.72rem', color: '#64748b' }}>Full hospital system operational recovery</span>

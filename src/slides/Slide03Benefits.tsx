@@ -164,7 +164,7 @@ export const Slide03Benefits: React.FC = () => {
             <span style={{ fontSize: '0.72rem', fontWeight: 800, color: activeBenefit.color, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
               Benefit Deep-Dive
             </span>
-            <h3 style={{ margin: '2px 0 0', fontSize: '1.4rem', fontFamily: 'var(--font-heading)', color: '#0f172a' }}>
+            <h3 style={{ margin: '2px 0 0', fontSize: 'var(--font-size-h3)', fontFamily: 'var(--font-heading)', color: '#0f172a' }}>
               {activeBenefit.title}
             </h3>
             <span style={{ fontSize: '0.85rem', color: '#64748b' }}>{activeBenefit.subtitle}</span>
@@ -172,7 +172,7 @@ export const Slide03Benefits: React.FC = () => {
         </div>
 
         {/* Before vs After Comparison */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '14px' }}>
           <div style={{ padding: '14px', borderRadius: 'var(--radius-md)', background: '#fff1f2', border: '1px solid #fecdd3' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#e11d48', fontWeight: 700, fontSize: '0.82rem', marginBottom: '8px' }}>
               <XCircle size={16} />

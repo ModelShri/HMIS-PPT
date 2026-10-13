@@ -170,9 +170,10 @@ export const Slide28WhyChooseUs: React.FC<Slide28WhyChooseUsProps> = ({ onRestar
       width: '100%',
       height: '100%',
       display: 'grid',
-      gridTemplateColumns: '1.2fr 1fr',
-      gap: '28px',
-      overflow: 'hidden'
+      gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 380px), 1fr))',
+      gap: 'clamp(16px, 2.5vw, 28px)',
+      overflowY: 'auto',
+      overflowX: 'hidden'
     }}>
       {/* Ambient background clay decor spheres */}
       <div style={{
@@ -212,7 +213,7 @@ export const Slide28WhyChooseUs: React.FC<Slide28WhyChooseUsProps> = ({ onRestar
             border: '2px solid #16a34a',
             borderRadius: '9999px',
             padding: '5px 14px',
-            fontSize: '0.78rem',
+            fontSize: 'var(--font-size-xs)',
             fontWeight: 800,
             color: '#14532d',
             boxShadow: '0 4px 12px rgba(22, 163, 74, 0.18), inset 0 1px 2px rgba(255,255,255,0.8)',
@@ -224,7 +225,7 @@ export const Slide28WhyChooseUs: React.FC<Slide28WhyChooseUsProps> = ({ onRestar
 
           <h2 style={{
             fontFamily: 'var(--font-heading)',
-            fontSize: '1.9rem',
+            fontSize: 'clamp(1.3rem, 2.5vw + 0.3rem, 1.9rem)',
             fontWeight: 800,
             color: '#0f172a',
             margin: '0 0 4px',
@@ -232,13 +233,13 @@ export const Slide28WhyChooseUs: React.FC<Slide28WhyChooseUsProps> = ({ onRestar
           }}>
             Why Hospital Leaders Choose Our HMIS
           </h2>
-          <p style={{ margin: 0, fontSize: '0.88rem', color: '#475569', fontWeight: 500 }}>
+          <p style={{ margin: 0, fontSize: 'var(--font-size-body)', color: '#475569', fontWeight: 500 }}>
             Transforming hospital operations with an integrated, intelligent, and secure platform.
           </p>
         </div>
 
         {/* 4 Colored Claymorphic Pillar Cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '14px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(150px, 20vw, 220px), 1fr))', gap: 'clamp(8px, 1.2vw, 14px)' }}>
           {differentiators.map((d, i) => (
             <div
               key={i}
@@ -354,7 +355,7 @@ export const Slide28WhyChooseUs: React.FC<Slide28WhyChooseUsProps> = ({ onRestar
             </h4>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '10px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(115px, 18vw, 160px), 1fr))', gap: 'clamp(6px, 1vw, 10px)' }}>
             {roadmap.map((rm, i) => (
               <div
                 key={i}
@@ -406,13 +407,14 @@ export const Slide28WhyChooseUs: React.FC<Slide28WhyChooseUsProps> = ({ onRestar
         border: '2.5px solid #818cf8',
         borderRadius: '26px',
         boxShadow: '0 20px 45px rgba(99, 102, 241, 0.22), inset 0 3px 6px rgba(255, 255, 255, 0.95), inset 0 -3px 6px rgba(99, 102, 241, 0.15)',
-        padding: '28px 24px',
+        padding: 'clamp(16px, 2.2vw, 28px) clamp(14px, 2vw, 24px)',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
         zIndex: 1,
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        minHeight: '340px'
       }}>
         {/* Soft background ambient glow */}
         <div style={{

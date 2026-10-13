@@ -213,7 +213,7 @@ export const Slide05PatientJourney: React.FC = () => {
                 <span style={{ fontSize: '0.72rem', fontWeight: 800, color: activeStep.color, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                   Milestone {activeStep.step} of 8 · {activeStep.department}
                 </span>
-                <h3 style={{ margin: '2px 0 0', fontSize: '1.4rem', fontFamily: 'var(--font-heading)', color: '#0f172a' }}>
+                <h3 style={{ margin: '2px 0 0', fontSize: 'var(--font-size-h3)', fontFamily: 'var(--font-heading)', color: '#0f172a' }}>
                   {activeStep.title}
                 </h3>
               </div>

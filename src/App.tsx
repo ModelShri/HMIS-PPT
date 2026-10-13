@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { SLIDES_DATA } from './data/slidesData';
 import { PresentationTopBar } from './components/PresentationTopBar';
 import { PresentationFooter } from './components/PresentationFooter';
@@ -42,7 +43,12 @@ export const App: React.FC = () => {
   const [showNotes, setShowNotes] = useState<boolean>(false);
   const [isAutoPlay, setIsAutoPlay] = useState<boolean>(false);
   const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
-  const [isRailCollapsed, setIsRailCollapsed] = useState<boolean>(false);
+  const [isRailCollapsed, setIsRailCollapsed] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth <= 1024;
+    }
+    return false;
+  });
 
   const totalSlides = SLIDES_DATA.length;
   const currentSlide = SLIDES_DATA.find((s) => s.id === currentSlideId) || SLIDES_DATA[0];
@@ -59,6 +65,9 @@ export const App: React.FC = () => {
   const handleJumpToSlide = useCallback((id: number) => {
     if (id >= 1 && id <= totalSlides) {
       setCurrentSlideId(id);
+      if (typeof window !== 'undefined' && window.innerWidth <= 1024) {
+        setIsRailCollapsed(true);
+      }
     }
   }, [totalSlides]);
 
@@ -239,6 +248,15 @@ export const App: React.FC = () => {
           onToggleCollapse={() => setIsRailCollapsed(!isRailCollapsed)}
         />
 
+        {/* Mobile/Tablet Backdrop for open Thumbnail Rail */}
+        {!isRailCollapsed && (
+          <div
+            className="ppt-rail-backdrop"
+            onClick={() => setIsRailCollapsed(true)}
+            aria-hidden="true"
+          />
+        )}
+
         {/* Main 16:9 Slide Presentation Canvas */}
         <main className="presentation-stage">
           <div className={`slide-canvas ${currentSlideId === 1 || currentSlideId === 2 ? 'slide-canvas-cover' : ''}`}>
@@ -269,6 +287,27 @@ export const App: React.FC = () => {
           </div>
         </main>
       </div>
+
+      {/* Mobile Mid-Screen Floating Navigation Arrows (Both Sides) */}
+      <button
+        className="mobile-nav-arrow mobile-nav-prev"
+        onClick={handlePrev}
+        disabled={currentSlideId === 1}
+        aria-label="Previous Slide"
+        title="Previous Slide"
+      >
+        <ChevronLeft size={24} strokeWidth={2.6} />
+      </button>
+
+      <button
+        className="mobile-nav-arrow mobile-nav-next"
+        onClick={handleNext}
+        disabled={currentSlideId === totalSlides}
+        aria-label="Next Slide"
+        title="Next Slide"
+      >
+        <ChevronRight size={24} strokeWidth={2.6} />
+      </button>
 
       {/* Navigation Footer / PowerPoint Status Bar */}
       <PresentationFooter

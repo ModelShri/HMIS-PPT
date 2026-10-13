@@ -87,15 +87,16 @@ export const Slide01Cover: React.FC<Slide01CoverProps> = ({ onStart, onJumpToSli
     <div className="cover-slide-container" style={{
       position: 'relative',
       width: '100%',
-      height: '100%',
+      minHeight: '100%',
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'space-between',
+      gap: 'clamp(12px, 2vw, 20px)',
       background: 'radial-gradient(ellipse at 70% 30%, #eaf2ff 0%, #f4f8ff 50%, #e8f0fe 100%)',
       borderRadius: 'var(--radius-xl)',
-      padding: '24px 32px 18px 32px',
+      padding: 'clamp(14px, 2.5vw, 28px) clamp(16px, 3vw, 32px)',
       boxSizing: 'border-box',
-      overflow: 'hidden'
+      overflowY: 'auto',
+      overflowX: 'hidden'
     }}>
       {/* Background soft clouds decor */}
       <div style={{
@@ -122,13 +123,11 @@ export const Slide01Cover: React.FC<Slide01CoverProps> = ({ onStart, onJumpToSli
       }} />
 
       {/* TOP & MIDDLE SECTION (Left Text & Right Hospital) */}
-      <div style={{
+      <div className="cover-hero-grid" style={{
         display: 'grid',
-        gridTemplateColumns: '1.05fr 1.15fr',
-        gap: '24px',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))',
+        gap: 'clamp(16px, 2.5vw, 28px)',
         alignItems: 'center',
-        flex: 1,
-        minHeight: 0,
         zIndex: 2
       }}>
         {/* LEFT COLUMN: Visual Brand, Headline, Cards, CTAs */}
@@ -136,14 +135,14 @@ export const Slide01Cover: React.FC<Slide01CoverProps> = ({ onStart, onJumpToSli
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          gap: '12px',
-          paddingRight: '12px'
+          gap: 'clamp(8px, 1.2vw, 12px)',
+          paddingRight: 'clamp(0px, 1vw, 12px)'
         }}>
           {/* Top Header Badge */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <div style={{
-              width: '42px',
-              height: '42px',
+              width: 'clamp(36px, 4vw, 42px)',
+              height: 'clamp(36px, 4vw, 42px)',
               borderRadius: '14px',
               background: 'linear-gradient(135deg, #2563eb, #1d4ed8)',
               display: 'flex',
@@ -153,11 +152,11 @@ export const Slide01Cover: React.FC<Slide01CoverProps> = ({ onStart, onJumpToSli
               color: '#ffffff',
               flexShrink: 0
             }}>
-              <HeartPulse size={24} strokeWidth={2.5} />
+              <HeartPulse size={22} strokeWidth={2.5} />
             </div>
             <div>
               <div style={{
-                fontSize: '1.15rem',
+                fontSize: 'clamp(0.95rem, 1.4vw, 1.15rem)',
                 fontWeight: 800,
                 color: '#0f2b5c',
                 letterSpacing: '0.04em',
@@ -166,7 +165,7 @@ export const Slide01Cover: React.FC<Slide01CoverProps> = ({ onStart, onJumpToSli
                 HMIS
               </div>
               <div style={{
-                fontSize: '0.8rem',
+                fontSize: 'clamp(0.72rem, 0.9vw, 0.8rem)',
                 fontWeight: 500,
                 color: '#475569',
                 lineHeight: 1.2
@@ -177,10 +176,10 @@ export const Slide01Cover: React.FC<Slide01CoverProps> = ({ onStart, onJumpToSli
           </div>
 
           {/* Main Hero Typography */}
-          <div style={{ marginTop: '6px' }}>
+          <div style={{ marginTop: '4px' }}>
             <h1 style={{
               fontFamily: 'var(--font-heading)',
-              fontSize: '4.4rem',
+              fontSize: 'clamp(2.4rem, 5.5vw + 0.5rem, 4.4rem)',
               fontWeight: 900,
               lineHeight: 0.95,
               color: '#0b2559',
@@ -192,7 +191,7 @@ export const Slide01Cover: React.FC<Slide01CoverProps> = ({ onStart, onJumpToSli
             </h1>
             <h2 style={{
               fontFamily: 'var(--font-heading)',
-              fontSize: '2.1rem',
+              fontSize: 'clamp(1.25rem, 2.6vw + 0.3rem, 2.1rem)',
               fontWeight: 800,
               lineHeight: 1.15,
               color: '#122e66',
@@ -202,7 +201,7 @@ export const Slide01Cover: React.FC<Slide01CoverProps> = ({ onStart, onJumpToSli
               Hospital Management<br />Information System
             </h2>
             <p style={{
-              fontSize: '1.08rem',
+              fontSize: 'clamp(0.85rem, 1.2vw + 0.2rem, 1.08rem)',
               fontWeight: 500,
               color: '#475569',
               margin: '8px 0 0 0',
@@ -215,8 +214,8 @@ export const Slide01Cover: React.FC<Slide01CoverProps> = ({ onStart, onJumpToSli
           {/* 4 Feature Pill Cards Grid */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '10px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(100px, 20vw, 140px), 1fr))',
+            gap: '8px',
             marginTop: '4px',
             marginBottom: '4px'
           }}>
@@ -346,24 +345,25 @@ export const Slide01Cover: React.FC<Slide01CoverProps> = ({ onStart, onJumpToSli
           </div>
 
           {/* Action Buttons Row */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginTop: '6px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '10px', marginTop: '6px' }}>
             {/* Explore the System button */}
             <button
               onClick={onStart}
               style={{
                 background: 'linear-gradient(135deg, #2563eb 0%, #6366f1 50%, #c026d3 100%)',
                 color: '#ffffff',
-                padding: '12px 28px',
+                padding: 'clamp(10px, 1.2vw, 12px) clamp(18px, 2vw, 28px)',
                 borderRadius: '9999px',
-                fontSize: '1rem',
+                fontSize: 'clamp(0.85rem, 1vw + 0.3rem, 1rem)',
                 fontWeight: 700,
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '10px',
+                gap: '8px',
                 border: 'none',
                 cursor: 'pointer',
                 boxShadow: '0 8px 24px rgba(99, 102, 241, 0.45), 0 2px 6px rgba(0,0,0,0.1)',
-                transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+                transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+                whiteSpace: 'nowrap'
               }}
               onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-2px)')}
               onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
@@ -378,17 +378,18 @@ export const Slide01Cover: React.FC<Slide01CoverProps> = ({ onStart, onJumpToSli
               style={{
                 background: 'rgba(255, 255, 255, 0.95)',
                 color: '#1e293b',
-                padding: '11px 22px',
+                padding: 'clamp(9px, 1.1vw, 11px) clamp(14px, 1.8vw, 22px)',
                 borderRadius: '9999px',
-                fontSize: '0.95rem',
+                fontSize: 'clamp(0.82rem, 0.9vw, 0.95rem)',
                 fontWeight: 600,
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '10px',
+                gap: '8px',
                 border: '1.5px solid #cbd5e1',
                 cursor: 'pointer',
                 boxShadow: '0 4px 14px rgba(15, 23, 42, 0.06)',
-                transition: 'all 0.2s ease'
+                transition: 'all 0.2s ease',
+                whiteSpace: 'nowrap'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = '#f8fafc';
@@ -424,14 +425,15 @@ export const Slide01Cover: React.FC<Slide01CoverProps> = ({ onStart, onJumpToSli
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          minHeight: '220px'
         }}>
           <div style={{
             position: 'relative',
             width: '100%',
             maxWidth: '680px',
             height: '100%',
-            maxHeight: '480px',
+            maxHeight: 'clamp(220px, 36vh, 480px)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center'
@@ -509,30 +511,33 @@ export const Slide01Cover: React.FC<Slide01CoverProps> = ({ onStart, onJumpToSli
       </div>
 
       {/* BOTTOM SECTION: Floating Dock Ribbon + Cursive Signature */}
-      <div style={{
+      <div className="cover-bottom-dock" style={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        gap: '12px',
         width: '100%',
-        marginTop: '8px',
+        marginTop: 'clamp(8px, 1.5vw, 14px)',
         zIndex: 5
       }}>
         {/* Floating Dock Ribbon */}
-        <div style={{
+        <div className="cover-dock-ribbon" style={{
           background: 'rgba(255, 255, 255, 0.94)',
           backdropFilter: 'blur(12px)',
           borderRadius: '18px',
           border: '1.5px solid #cbd5e1',
-          padding: '10px 22px',
+          padding: 'clamp(8px, 1.2vw, 10px) clamp(12px, 1.8vw, 22px)',
           boxShadow: '0 8px 24px rgba(15, 23, 42, 0.05)',
           display: 'flex',
           alignItems: 'center',
-          gap: '16px'
+          flexWrap: 'wrap',
+          gap: 'clamp(10px, 1.4vw, 16px)'
         }}>
           {/* Feature 1 */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <div style={{ color: '#8b5cf6' }}>
-              <Network size={20} />
+              <Network size={18} />
             </div>
             <div>
               <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#1e293b', lineHeight: 1.1 }}>All Departments</div>
@@ -540,12 +545,12 @@ export const Slide01Cover: React.FC<Slide01CoverProps> = ({ onStart, onJumpToSli
             </div>
           </div>
 
-          <div style={{ width: '1px', height: '24px', background: '#cbd5e1' }} />
+          <div className="cover-dock-divider" style={{ width: '1px', height: '22px', background: '#cbd5e1' }} />
 
           {/* Feature 2 */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <div style={{ color: '#f59e0b' }}>
-              <Building size={20} />
+              <Building size={18} />
             </div>
             <div>
               <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#1e293b', lineHeight: 1.1 }}>Multi-Branch</div>
@@ -553,12 +558,12 @@ export const Slide01Cover: React.FC<Slide01CoverProps> = ({ onStart, onJumpToSli
             </div>
           </div>
 
-          <div style={{ width: '1px', height: '24px', background: '#cbd5e1' }} />
+          <div className="cover-dock-divider" style={{ width: '1px', height: '22px', background: '#cbd5e1' }} />
 
           {/* Feature 3 */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <div style={{ color: '#6366f1' }}>
-              <Server size={20} />
+              <Server size={18} />
             </div>
             <div>
               <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#1e293b', lineHeight: 1.1 }}>Scalable</div>
@@ -566,12 +571,12 @@ export const Slide01Cover: React.FC<Slide01CoverProps> = ({ onStart, onJumpToSli
             </div>
           </div>
 
-          <div style={{ width: '1px', height: '24px', background: '#cbd5e1' }} />
+          <div className="cover-dock-divider" style={{ width: '1px', height: '22px', background: '#cbd5e1' }} />
 
           {/* Feature 4 */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <div style={{ color: '#ef4444' }}>
-              <TrendingUp size={20} />
+              <TrendingUp size={18} />
             </div>
             <div>
               <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#1e293b', lineHeight: 1.1 }}>Data-driven</div>
@@ -583,11 +588,12 @@ export const Slide01Cover: React.FC<Slide01CoverProps> = ({ onStart, onJumpToSli
         {/* Cursive Handwriting Signature */}
         <div style={{
           textAlign: 'right',
-          paddingRight: '12px'
+          paddingRight: '8px',
+          alignSelf: 'center'
         }}>
           <div style={{
             fontFamily: "'Caveat', 'Dancing Script', cursive",
-            fontSize: '2.5rem',
+            fontSize: 'clamp(1.5rem, 3vw, 2.3rem)',
             fontWeight: 700,
             lineHeight: 0.95,
             color: '#1e3a8a',
@@ -599,7 +605,7 @@ export const Slide01Cover: React.FC<Slide01CoverProps> = ({ onStart, onJumpToSli
           </div>
           <div style={{
             fontFamily: "'Caveat', 'Dancing Script', cursive",
-            fontSize: '2.5rem',
+            fontSize: 'clamp(1.5rem, 3vw, 2.3rem)',
             fontWeight: 700,
             lineHeight: 0.95,
             color: '#1e3a8a',
@@ -698,7 +704,7 @@ export const Slide01Cover: React.FC<Slide01CoverProps> = ({ onStart, onJumpToSli
                   border: '1.5px solid #e2e8f0',
                   background: '#f8fafc'
                 }}>
-                  <div style={{ color: '#2563eb', fontWeight: 800, fontSize: '1.4rem' }}>28 Modules</div>
+                  <div style={{ color: '#2563eb', fontWeight: 800, fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)' }}>28 Modules</div>
                   <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#1e293b' }}>Unified Hospital OS</div>
                   <div style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '4px' }}>
                     From Emergency Triage to IPD Discharge and Financial MIS.
@@ -711,7 +717,7 @@ export const Slide01Cover: React.FC<Slide01CoverProps> = ({ onStart, onJumpToSli
                   border: '1.5px solid #e2e8f0',
                   background: '#f8fafc'
                 }}>
-                  <div style={{ color: '#16a34a', fontWeight: 800, fontSize: '1.4rem' }}>100% RBAC</div>
+                  <div style={{ color: '#16a34a', fontWeight: 800, fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)' }}>100% RBAC</div>
                   <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#1e293b' }}>Zero-Trust Audit Security</div>
                   <div style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '4px' }}>
                     Strict role permissions synchronized with ASP.NET Core Identity.
@@ -724,7 +730,7 @@ export const Slide01Cover: React.FC<Slide01CoverProps> = ({ onStart, onJumpToSli
                   border: '1.5px solid #e2e8f0',
                   background: '#f8fafc'
                 }}>
-                  <div style={{ color: '#8b5cf6', fontWeight: 800, fontSize: '1.4rem' }}>Multi-Branch</div>
+                  <div style={{ color: '#8b5cf6', fontWeight: 800, fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)' }}>Multi-Branch</div>
                   <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#1e293b' }}>Isolated Tenant Database</div>
                   <div style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '4px' }}>
                     Central HQ oversight with localized branch operations.
